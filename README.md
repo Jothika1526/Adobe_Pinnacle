@@ -73,29 +73,26 @@ Open your terminal  and clone the project:
 ```bash
 git clone https://github.com/Jothika1526/Adobe_Pinnacle.git
 ```
-
-### 2. Navigate to the Project Root
+### 2. Navigate to the Solution Directory
+Change your current directory to the `solution_round1a` folder within the cloned repository:
 
 ```bash
-cd Adobe_Pinnacle
+cd Adobe_Pinnacle/solution_round1a
 ```
 
 ### 3. Build the Docker Image
-Navigate into the `solution_round1a` directory and build the Docker image. This command will create an image named `my_heading_extractor` with the tag `latest`.
 
 ```bash
-cd solution_round1a
 docker build --platform linux/amd64 -t my_heading_extractor:latest .
-cd .. # Navigate back to the root directory
 ```
+
 ### 4. Prepare Input Files
 Ensure your input PDF files (e.g., `round1.pdf`) are placed inside the `input/` directory within the `solution_round1a` folder.
 
 ### 5. Run the Container
-Execute the solution by running the Docker container. This command mounts your local `input` and `output` directories to the container, allowing it to read PDFs and write JSONs. It also ensures the container runs offline (`--network none`) and removes itself upon completion (`--rm`).
 
 ```bash
-docker run --rm -v $(pwd)/solution_round1a/input:/app/input -v $(pwd)/solution_round1a/output:/app/output --network none my_heading_extractor:latest
+docker run --rm -v "${PWD}/input:/app/input" -v "${PWD}/output:/app/output" --network none my_heading_extractor:latest 
 ```
 
 ### 📋 Expected Container Behavior:
