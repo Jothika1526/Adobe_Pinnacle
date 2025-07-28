@@ -1,0 +1,7 @@
+# Python specific ignores
+*.pyc
+__pycache__/
+.env
+.DS_Store  # macOS files, if applicable
+venv/      # If you create a virtual environment here
+round1a/
