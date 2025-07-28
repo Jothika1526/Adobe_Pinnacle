@@ -64,22 +64,38 @@ This solution leverages powerful Python libraries and pre-trained machine learni
 * **Python:** Version 3.10 (as specified in the Dockerfile).
 * **Required Python Packages:** These are automatically installed via `requirements.txt` during the Docker build.
 
-## 🚀 Execution Instructions (for Adobe Judges)
+## 🚀 Execution Instructions
 These instructions are designed for execution in a Unix-like shell environment (Linux, macOS, or Git Bash on Windows), which is typical for Docker workflows.
 
-### 1. Build the Docker Image
-Navigate to the root directory of this repository (where `README.md` and `solution_round1a` are located) and execute the following command:
+### 1. Clone the Repository
+Open your terminal  and clone the project:
 
 ```bash
-docker build --platform linux/amd64 -t my_heading_extractor:latest .
+git clone https://github.com/Jothika1526/Adobe_Pinnacle.git
 ```
 
-
-### 2. Run the Container
-After successfully building the image, ensure your input PDF files are placed in the `input/` directory within this repository. Then, run the solution using the following command:
+### 2. Navigate to the Project Root
 
 ```bash
-docker run --rm -v $(pwd)/input:/app/input -v $(pwd)/output:/app/output --network none my_heading_extractor:latest
+cd Adobe_Pinnacle
+```
+
+### 3. Build the Docker Image
+Navigate into the `solution_round1a` directory and build the Docker image. This command will create an image named `my_heading_extractor` with the tag `latest`.
+
+```bash
+cd solution_round1a
+docker build --platform linux/amd64 -t my_heading_extractor:latest .
+cd .. # Navigate back to the root directory
+```
+### 4. Prepare Input Files
+Ensure your input PDF files (e.g., `round1.pdf`) are placed inside the `input/` directory within the `solution_round1a` folder.
+
+### 5. Run the Container
+Execute the solution by running the Docker container. This command mounts your local `input` and `output` directories to the container, allowing it to read PDFs and write JSONs. It also ensures the container runs offline (`--network none`) and removes itself upon completion (`--rm`).
+
+```bash
+docker run --rm -v $(pwd)/solution_round1a/input:/app/input -v $(pwd)/solution_round1a/output:/app/output --network none my_heading_extractor:latest
 ```
 
 ### 📋 Expected Container Behavior:
