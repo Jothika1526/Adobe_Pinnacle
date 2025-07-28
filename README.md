@@ -45,8 +45,6 @@ Our solution employs a comprehensive, multi-stage machine learning pipeline for 
 
 6.  **🚀 Inference (`predict.py`):** Orchestrates the pipeline for new PDFs: performs feature extraction, applies both trained LightGBM models sequentially, and compiles the final structured JSON output.
 
-This sophisticated pipeline ensures an accurate, efficient, and adaptable solution for structured PDF outline extraction.
-
 ## 🛠️ Models and Libraries Used
 This solution leverages powerful Python libraries and pre-trained machine learning models:
 
@@ -59,8 +57,6 @@ This solution leverages powerful Python libraries and pre-trained machine learni
 
 * **Machine Learning Models:**
     * `lightgbm==4.6.0`: Primary ML framework for efficient tabular data classification.
-    * `is_heading_classifier_model.pkl`: Pre-trained LightGBM binary classifier for heading detection.
-    * `heading_level_classifier_model.pkl`: Pre-trained LightGBM multi-class classifier for heading level prediction (Title, H1, H2, H3).
     * **Auxiliary Assets:** `label_encoder.pkl` files (for categorical data transformation) and `scaler.pkl` files (for numerical data normalization).
 
 ## 💻 Requirements
