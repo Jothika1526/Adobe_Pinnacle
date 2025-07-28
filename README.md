@@ -23,6 +23,7 @@ All core solution files for Round 1a are located within the `solution_round1a/` 
     ├── input/  # Contains sample input PDFs (e.g., round1.pdf)
     └── output/ # Contains generated JSON output for sample inputs (e.g., round1.json)
 ```
+## Solution Approach
 1.  **Extensive Data Collection:** A robust training dataset of over 2000 diverse PDF documents was curated using a custom search API. This broad collection ensures the models are trained on a wide variety of real-world document layouts and styles, enhancing generalization.
 
 2.  **Advanced Feature Extraction (`feature_extractor.py`):**
@@ -44,7 +45,6 @@ All core solution files for Round 1a are located within the `solution_round1a/` 
 5.  **Two-Stage LightGBM Model Training (`lbm.ipynb`):** Two separate, highly efficient LightGBM (Light Gradient Boosting Machine) models are trained:
     * **Model 1 (`is_heading_classifier_model.pkl`):** A binary classifier that determines whether a given text span is a heading or not.
     * **Model 2 (`heading_level_classifier_model.pkl`):** A multi-class classifier that predicts the precise hierarchical level (Title, H1, H2, H3) for text spans identified as headings by Model 1.
-    * Both models incorporate `early_stopping` during training to prevent overfitting and optimize generalization performance.
 
 6.  **Inference (`predict.py`):** The `predict.py` script orchestrates the entire prediction pipeline. It takes a new input PDF, performs the identical feature extraction as used during training, and then passes these features sequentially through the trained `is_heading_classifier_model` and `heading_level_classifier_model`. Finally, it compiles the extracted and classified headings into the specified structured JSON output.
 
