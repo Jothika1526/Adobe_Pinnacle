@@ -4,24 +4,23 @@
 This solution accurately identifies and hierarchically classifies headings within diverse PDF documents, generating a structured JSON output. It's a robust, offline-capable system packaged in a Docker container, adhering to Adobe Pinnacle AI Hackathon Round 1a requirements.
 
 ## 📁 Folder Structure
-All core solution files for Round 1a are meticulously organized within the `solution_round1a/` directory.
+All core solution files for Round 1a are meticulously organized as follows.
 
 ```
 .
 ├── .gitignore
 ├── README.md
-└── solution_round1a/
-    ├── Dockerfile
-    ├── requirements.txt
-    ├── predict.py
-    ├── heading_level_classifier_model.pkl
-    ├── heading_level_label_encoder.pkl
-    ├── heading_level_scaler.pkl
-    ├── is_heading_classifier_model.pkl
-    ├── is_heading_label_encoder.pkl
-    ├── is_heading_scaler.pkl
-    ├── input/  # Contains sample input PDFs (e.g., round1.pdf)
-    └── output/ # Contains generated JSON output for sample inputs (e.g., round1.json)
+├── Dockerfile
+├── requirements.txt
+├── predict.py
+├── heading_level_classifier_model.pkl
+├── heading_level_label_encoder.pkl
+├── heading_level_scaler.pkl
+├── is_heading_classifier_model.pkl
+├── is_heading_label_encoder.pkl
+├── is_heading_scaler.pkl
+├── input/   # Contains sample input PDFs (e.g., round1.pdf)
+└── output/  # Contains generated JSON output for sample inputs (e.g., round1.json)
 ```
 
 ## 💡 Solution Approach
@@ -74,10 +73,9 @@ Open your terminal  and clone the project:
 git clone https://github.com/Jothika1526/Adobe_Pinnacle.git
 ```
 ### 2. Navigate to the Solution Directory
-Change your current directory to the `solution_round1a` folder within the cloned repository:
 
 ```bash
-cd Adobe_Pinnacle/solution_round1a
+cd Adobe_Pinnacle
 ```
 
 ### 3. Build the Docker Image
@@ -87,7 +85,7 @@ docker build --platform linux/amd64 -t my_heading_extractor:latest .
 ```
 
 ### 4. Prepare Input Files
-Ensure your input PDF files (e.g., `round1.pdf`) are placed inside the `input/` directory within the `solution_round1a` folder.
+Ensure your input PDF files (e.g., `round1.pdf`) are placed inside the `input/` directory.
 
 ### 5. Run the Container
 
